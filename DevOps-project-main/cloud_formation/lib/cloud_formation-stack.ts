@@ -101,6 +101,10 @@ export class CloudFormationStack extends cdk.Stack {
         // Return lambda resource.
         return serverLambda;
     }
+        //define a metric for lambda errors
+        const functionErrors = myFunction.metricErrors({
+        period: cdk.Duration.minutes(1),
+        });
 
     /**
     * @private
